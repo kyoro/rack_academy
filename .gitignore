@@ -1,0 +1,27 @@
+# default
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+*.swp
+*.swo
+# submodules
+# db
+# lib
+# app/models
+
+# plus
+Gemfile.lock
+database.yml
+base.yml
+aws.yml
+recurly.yml
+zerigo.yml
+*.bak
+www.fluxflex.com
+schema.rb
+routes.rb.org
+.DS_Store
+
+# production, staging
+unicorn.pid
