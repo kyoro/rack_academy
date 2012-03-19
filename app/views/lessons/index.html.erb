@@ -1,1 +1,6 @@
 Lesson index
+
+<% @lessons.each do |lesson| %>
+<hr />
+<%= link_to lesson.title, lesson_path(lesson.id) %>
+<% end %>

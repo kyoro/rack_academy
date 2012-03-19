@@ -1,6 +1,7 @@
 RackAcademy::Application.routes.draw do
-  root :to => 'pages#index'
+  root :to => 'lessons#index'
 
   resources :lessons do
+    get :chapters
   end
 end
