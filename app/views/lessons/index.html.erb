@@ -1,6 +1,73 @@
-Lesson index
+<div class="hero-unit" style="">
+<h1>Rack Academy</h1>
+<p></p>
+<p>Rackhubを使った開発を学ぶ、Rackアカデミーへようこそ！</p>
+</div>
+
+<div class="span8">
+<h3>開講中の講座</h3>
+<p></p>
+
+<table class="table">
+<thead>
+  <tr>
+    <th>No.</th>
+    <th>講座名</th>
+    <th>内容</th>
+  </tr>
+</thead>
+<tbody>
 
 <% @lessons.each do |lesson| %>
-<hr />
-<%= link_to lesson.title, lesson_path(lesson.id) %>
+  <tr>
+    <td><%= lesson.id %></td>
+    <td><%= link_to lesson.title, lesson_path(lesson.id) %></td>
+    <td><%= lesson.description %></td> 
+  </tr>
 <% end %>
+
+
+</tbody>
+</table>
+
+
+</div>
+
+<div class="span1"></div>
+
+<div class="span3">
+<h3>Rack Academyとは?</h3>
+<p></p>
+<p>
+Rackhubを使った開発を学ぶ、サーバ管理やプログラミング初学者のための学習用コンテンツです。Rack Academyでは、動画と共に進行するテキストを見ながら、実際にRackをオペレーションすることで、簡単に開発のHow to を学ぶことができます。
+</p>
+<p></p>
+<p style="text-align:center;">
+<img width="180px" src="http://rackhub.net/assets/logo-05c37c5d56427f413809d6058084154b.png" />
+</p>
+<p></p>
+<h3>共有する</h3>
+<p></p>
+<p>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= root_url %>" data-text="[Rack Academy] Rackhubでの開発を学ぶ、実践型プログラミング＆サーバ構築学習サイト <%= root_url %> #rackhub" data-lang="ja">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like" data-href="<%= root_url %>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="true"></div>
+
+
+
+</p>
+
+
+
+</div>

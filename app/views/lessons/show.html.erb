@@ -1,14 +1,53 @@
-<%= @lesson.title %>
-
-<object width="560" height="315">
+<div class="span12">
+  <h1><%= @lesson.title %></h1>
+  <p></p>
+  <p><%= @lesson.description %></p>
+</div>
+<div class="span6">
+<object width="448" height="252">
 <param name="movie" value="http://www.youtube.com/v/<%= @lesson.video %>?version=3&hl=ja_JP&enablejsapi=1&playerapiid=ytplayer"></param>
 <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
-<embed src="http://www.youtube.com/v/<%= @lesson.video %>?version=3&hl=ja_JP&enablejsapi=1&playerapiid=ytplayer" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true" id="ytplayer"></embed>
+<embed src="http://www.youtube.com/v/<%= @lesson.video %>?version=3&hl=ja_JP&enablejsapi=1&playerapiid=ytplayer" type="application/x-shockwave-flash" width="448" height="252" allowscriptaccess="always" allowfullscreen="true" id="ytplayer"></embed>
 </object>
+<p></P>
+<h3>コメント</h3>
 
-<div id="chapter">Loading...</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="<%= lesson_url(@lesson) %>" data-num-posts="2" data-width="448"></div>
+<p></p>
+<h3>共有する</h3>
+<p></p>
+<p>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= lesson_url(@lesson) %>" data-text="[Rack Academy] <%= @lesson.title %> <%= lesson_url(@lesson) %> #rackhub" data-lang="ja">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like" data-href="<%= lesson_url(@lesson) %>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="true"></div>
+
+
+
+</p>
+
+</div>
+<div class="span1"></div>
+<div class="span5" id="chapter">
+Loading...</div>
 <script>
 var player;
 var timeMap =  new Array();;

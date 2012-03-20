@@ -4,13 +4,16 @@ class Lesson < ActiveRecord::Base
 
 
 def chapters
-  rndr = HTMLwithCoderay.new(:filter_html => true, :hard_wrap => true)
 
   markdown = Redcarpet::Markdown.new(
-    rndr,
+    Redcarpet::Render::HTML,
     :autolink => true, 
     :space_after_headers => true, 
-    :fenced_code_blocks => true)
+    :filter_html => true, 
+    :hard_wrap => true,
+    :gh_blockcode => true,
+    :fenced_code => true,
+    )
 
   results = []
   chapters = self.script.split(">>>>")
@@ -42,8 +45,3 @@ end
 
 end
 
-class HTMLwithCoderay < Redcarpet::Render::HTML
-  def block_code(code, language)
-    CodeRay.scan(code, language.to_sym).div(:line_numbers => :table)
-  end
-end
