@@ -6,8 +6,7 @@
 <embed src="http://www.youtube.com/v/<%= @lesson.video %>?version=3&hl=ja_JP&enablejsapi=1&playerapiid=ytplayer" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true" id="ytplayer"></embed>
 </object>
 
-<div id="timeDisplay">///</div>
-<div id="chapter">///</div>
+<div id="chapter">Loading...</div>
 
 
 <script>
@@ -33,6 +32,7 @@ function onYouTubePlayerReady(playerId) {
     }
     player.playVideo();
     setInterval("displayCheck()",1000);
+    $('#chapter').html("");
   });
 }
 
@@ -40,6 +40,7 @@ var currentChapter = -1;
 function displayCheck(){
     currentTime = parseInt(player.getCurrentTime());
     if(currentTime){
+      currentTime = currentTime - 1;
       chapterNumber = timeMap[currentTime];
       if(chapterNumber != currentChapter ){
         $('#chapter').hide();
@@ -51,6 +52,7 @@ function displayCheck(){
         }
         $('#chapter').fadeIn("slow");
         currentChapter = chapterNumber;
+      }else{
       }
     }
 }
