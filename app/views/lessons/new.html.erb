@@ -17,7 +17,11 @@
     <%= form.label :script, "スクリプト", :class => "" %>
     <%= form.text_area :script, :class => "" %>
   </fieldset>
-  <div class="">
+  <fieldset>
+    <%= form.label :passcode, "パスコード", :class => "" %>
+    <%= form.text_field :passcode, :class => "" %>
+  </fieldset>
+   <div class="">
     <%= form.submit "作成", :class => "" %>
   </div>
 
